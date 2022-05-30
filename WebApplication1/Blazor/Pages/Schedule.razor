@@ -1,0 +1,40 @@
+﻿@page "/Schedule/{IdS}"
+@using Blazor.Services;
+@using Blazor.Data.Models;
+
+<h3>Расписание туров</h3>
+@if (CurrentSchedule != null)
+{
+    <div class="authorBlock">
+        <div class="field">
+            <label class="label">Идентификатор</label> <input class="form-control valueField" type="text" value="@CurrentSchedule.IdS" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Идентификатор тура</label> <input class="form-control valueField" type="text" value="@CurrentSchedule.Id" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Дата начала</label> <input class="form-control valueField" type="text" value="@CurrentSchedule.DateBegin" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Дата конца</label> <input class="form-control valueField" type="text" value="@CurrentSchedule.DateEnd" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Свободные места</label> <input class="form-control valueField" type="text" value="@CurrentSchedule.FreePlaces" aria-label="Disabled input example" disabled readonly>
+        </div>
+    </div>
+}
+@code {
+    [Parameter]
+    public string IdS { get; set; }
+    public List<Data.Models.Schedule> Schedules { get; set; }
+    public Data.Models.Schedule? CurrentSchedule { get; set; }
+    [Inject]
+    private IScheduleProvider schedulesProvider { get; set; }
+    protected async override Task OnInitializedAsync()
+    {
+        CurrentSchedule = await schedulesProvider.GetOne(Int32.Parse(IdS));
+        Schedules = await schedulesProvider.GetAll();
+        Console.WriteLine(CurrentSchedule);
+        base.OnInitialized();
+    }
+}

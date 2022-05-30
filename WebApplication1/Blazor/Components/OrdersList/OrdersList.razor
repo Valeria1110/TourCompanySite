@@ -1,0 +1,52 @@
+﻿@using Blazor.Data.Models;
+@using Blazor.Services;
+
+@inject NavigationManager _navigationManager
+
+<h1>Список заказов</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>ID расписания</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>Возраст</th>
+        <th>Телефон</th>
+        <th>E-mail</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (orders != null)
+    {
+       @foreach (var order in orders)
+        {
+            <tr>
+                <td>@order.IdOrder</td>
+                <td>@order.IdS</td>
+                <td>@order.FName</td>
+                <td>@order.LName</td>
+                <td>@order.MName</td>
+                <td>@order.Age</td>
+                <td>@order.Phone</td>
+                <td>@order.Email</td>
+            </tr>
+        }
+    }
+
+    @code{
+    private List<Order>? orders;
+    [Inject]
+    private IOrderProvider ordersProvider { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        orders = await ordersProvider.GetAll();
+    }
+    public void toItem(Order order)
+    {
+        _navigationManager.NavigateTo($"/Order/{order.IdOrder}");
+    }
+    }
+    </tbody>
+</table>

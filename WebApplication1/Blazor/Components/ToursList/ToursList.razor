@@ -1,0 +1,99 @@
+﻿@using Blazor.Data.Models;
+@using Blazor.Services;
+
+@inject NavigationManager _navigationManager
+
+ <section class="py-5 text-center container"> <!--часть верхняя-->
+            <div class="row py-lg-5"><!--часть с текстом-->
+                <div class="col-lg-6 col-md-8 mx-auto"><!--тоже текст, но обрезано-->
+                    <h1 class="fw-light">Туры по России и Азии</h1>
+                    <p class="lead text-muted">Путешествуйте с нами!</p>
+                    <p>
+                        <a href="/" class="btn btn-primary my-2">На главную</a>
+
+                    </p>
+                </div>
+            </div>
+        </section>
+
+<div class="album py-5 bg-light"><!--средняя часть сайта-->
+            <div class="container"><!--тоже средняя часть сайта-->
+                <p class="lead text-muted">Туры по России</p>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"><!--линия из трех колонок-->
+               @if (tours != null)
+            {
+                @foreach (var tour in tours)
+                {
+                    if (tour.Id <= 3)
+                    {
+                        <div class="col"><!--колонка первая-->
+                        <div @onclick="()=>toItem(tour)" class="card shadow-sm"><!--первая карточка-->
+                        <img src="../img/@tour.Image">
+                            <div class="card-body"><!--надписи внизу-->
+                                <p class="card-text">@tour.Name</p>
+                                <p class="text-muted"> Уровень сложности: @tour.Level</p>
+
+                                <div class="d-flex justify-content-between align-items-center"><!--строка с кнопкой и ценой-->
+                                    <div class="btn-group"><!--кнопка-->
+                                     <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="()=>toItem(tour)">Подробнее</button>
+                                    </div>
+                                    <small class="text-muted">от @tour.Cost руб/@tour.Days дней</small><!--цена-->
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                    }
+                }
+            }
+    </div>
+   <br>
+   <p class="lead text-muted">Туры по Азии</p>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"><!--линия из трех колонок-->
+                        
+               @if (tours != null)
+            {
+                @foreach (var tour in tours)
+                {
+                    @if (tour.Id > 3)
+                    {
+                        <div class="col"><!--колонка первая-->
+                        <div @onclick="()=>toItem(tour)" class="card shadow-sm"><!--первая карточка-->
+                        <img src="../img/@tour.Image">
+                            <div class="card-body"><!--надписи внизу-->
+                                <p class="card-text">@tour.Name</p>
+                                <p class="text-muted"> Уровень сложности: @tour.Level</p>
+
+                                <div class="d-flex justify-content-between align-items-center"><!--строка с кнопкой и ценой-->
+                                    <div class="btn-group"><!--кнопка-->
+                                     <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="()=>toItem(tour)">Подробнее</button>
+                                    </div>
+                                    <small class="text-muted">от @tour.Cost$/@tour.Days дней</small><!--цена-->
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                    }
+                }
+            }
+  </div>
+</div>
+</div>
+
+
+@code{
+    private List<Tour>? tours; //приватная переменная для хранения будущего списка авторов
+    [Inject]
+    private ITourProvider toursProvider { get; set; } = null;//переменная ранее созданногоо провайдера авторов, которая подставляется при помощи инъекции из program.cs 
+
+    //стандартный метод OnInitializedAsync - метод, который будет вызван сразу после инициализации компонента, 
+    // в нем мы запрашиваем у провайдера всех авторов и присваиваем переменной списка авторов
+     protected override async Task OnInitializedAsync()
+    {
+        tours = await toursProvider.GetAll();
+    }
+    //метод toItem - сработает при нажатии на строку таблицы и произведет навигацию на страницу выбранного автора.
+    public void toItem(Tour tour)
+    {
+        _navigationManager.NavigateTo($"/catalog/{tour.Id}");
+    }
+}

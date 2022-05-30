@@ -1,0 +1,84 @@
+﻿@page "/catalog/{Id}"
+@using Blazor.Services;
+@using Blazor.Data.Models;
+@inject NavigationManager _navigationManager
+
+
+@if (CurrentTour != null)
+{
+    <div class="imgblock3">
+            <center><img src='../img/@CurrentTour.Image' width="80%" title='@CurrentTour.Name' class="relative"></center>
+    </div>
+        <br><br>
+    <div class="row g-5">
+            <div class="col-md-8">
+                <h2 class="pb-4 mb-4 fst-italic border-bottom">
+                    @CurrentTour.Name
+                </h2>
+
+                <article class="blog-post">
+                    <h2 class="blog-post-title">Что Вас ожидает</h2>
+                    @CurrentTour.Desc
+                    <br>
+                    <h2>Длительность: @CurrentTour.Days дней</h2><br>
+                    <h2>Стоимость</h2>
+                @if (CurrentTour.Id <= 3)
+                {
+                    <h4>от @CurrentTour.Cost руб./чел.</h4>
+                }
+                else 
+                {
+                    <h4>от @CurrentTour.Cost$/чел.</h4>
+                }
+                <br>
+                <strong>Что включено в стоимость:</strong>
+                    <ul>
+                        <li>— проживание</li>
+                        <li>— завтраки, обеды и ужины</li>
+                        <li>— сопровождение гидами</li>
+                        <li>— все трансферы по программе</li>
+                        <li>— услуги повара</li>
+                    </ul>
+
+                </article>
+
+
+                <nav class="blog-pagination" aria-label="Pagination">
+                    <a class="btn btn-outline-primary" href="/catalog">К другим турам</a>
+                    <a class="btn btn-outline-secondary" href="/catalog/@Convert.ToString(CurrentTour.Id+1)">Посмотреть след. тур</a>
+                </nav><br><br>
+            </div>
+
+            <div class="col-md-4">
+                <div class="position-sticky" style="top: 2rem;">
+                    <div class="p-4 mb-3 bg-light rounded">
+                        <h4>О туре</h4>
+                        <h4 class="fst-italic">@CurrentTour.Name</h4>
+                        <p class="mb-0">Уровень сложности: @CurrentTour.Level
+                            <br>Размер группы: от 2 до 25 человек
+                            <br>Продолжительность: @CurrentTour.Days дней
+                        </p>
+                    </div>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+ }
+    
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    public List<Data.Models.Tour> Tours { get; set; }
+    public Data.Models.Tour? CurrentTour { get; set; }
+    [Inject]
+    private ITourProvider toursProvider { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        CurrentTour = await toursProvider.GetOne(Int32.Parse(Id));
+        Tours = await toursProvider.GetAll();
+        Console.WriteLine(CurrentTour);
+        base.OnInitialized();
+    }
+}

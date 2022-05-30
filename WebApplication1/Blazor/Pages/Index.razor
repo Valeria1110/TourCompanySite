@@ -1,0 +1,35 @@
+﻿@page "/"
+@inject NavigationManager _navigationManager
+
+<PageTitle>Главная</PageTitle>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Туда-Сюда</title>
+    <!-- Custom styles for this template -->
+    <link href="features.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <div class="px-4 pt-5 my-5 text-center border-bottom">
+            <h1 class="display-4 fw-bold">Туры по России и Азии</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Изведайте невероятные красоты гор, переплывите реки и почувствуйте культуру других народов и стран вместе с нашими турами!</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <a href="/catalog" class="btn btn-primary my-2">Перейти к просмотру</a>
+                </div>
+            </div>
+            <div class="overflow-hidden" style="max-height: 40vh;">
+                <div class="container px-5">
+                    <img src="../img/travel.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="800" loading="lazy">
+                </div>
+            </div>
+        </div>
+        <div class="b-example-divider"></div>
+    </main>
+
+</body>

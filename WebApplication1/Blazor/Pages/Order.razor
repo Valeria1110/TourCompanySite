@@ -1,0 +1,44 @@
+﻿@page "/Order/{IdOrder}"
+@using Blazor.Services;
+@using Blazor.Data.Models;
+
+<h3>Информация о заказах</h3>
+@if (CurrentOrder != null)
+{
+    <div class="authorBlock">
+        <div class="field">
+            <label class="label">Идентификатор</label> <input class="form-control valueField" type="text" value="@CurrentOrder.IdOrder" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Имя</label> <input class="form-control valueField" type="text" value="@CurrentOrder.FName" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Фамилия</label> <input class="form-control valueField" type="text" value="@CurrentOrder.LName" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Отчество</label> <input class="form-control valueField" type="text" value="@CurrentOrder.MName" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">Телефон</label> <input class="form-control valueField" type="text" value="@CurrentOrder.Phone" aria-label="Disabled input example" disabled readonly>
+        </div>
+        <div class="field">
+            <label class="label">E-mail</label> <input class="form-control valueField" type="text" value="@CurrentOrder.Email" aria-label="Disabled input example" disabled readonly>
+        </div>
+    </div>
+   
+}
+@code {
+    [Parameter]
+    public string IdOrder { get; set; }
+    public List<Data.Models.Order> Orders { get; set; }
+    public Data.Models.Order? CurrentOrder { get; set; }
+    [Inject]
+    private IOrderProvider ordersProvider { get; set; }
+    protected async override Task OnInitializedAsync()
+    {
+        CurrentOrder = await ordersProvider.GetOne(Int32.Parse(IdOrder));
+        Orders = await ordersProvider.GetAll();
+        Console.WriteLine(CurrentOrder);
+        base.OnInitialized();
+    }
+}

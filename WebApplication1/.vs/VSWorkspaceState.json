@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WebApplication",
+    "\\WebApplication1\\Data",
+    "\\WebApplication\\Data",
+    "\\WebApplication\\Data\\DTOs",
+    "\\WebApplication\\Data\\Models"
+  ],
+  "SelectedNode": "\\WebApplication\\Data\\DTOs\\OrderDTO.cs",
+  "PreviewInSolutionExplorer": false
+}

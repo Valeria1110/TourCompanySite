@@ -1,0 +1,83 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = browser
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = Blazor
+build_property.RootNamespace = Blazor
+build_property.ProjectDir = C:\Users\leral\source\repos\WebApplication1\Blazor\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\leral\source\repos\WebApplication1\Blazor
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Pages/Catalog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0YWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Pages/Order.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Pages/Orders.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Pages/Schedule.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Pages/Schedules.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Pages/Tour.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG91ci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Shared/Footer.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZvb3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Shared/Header.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEhlYWRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Components/OrdersList/OrdersList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xPcmRlcnNMaXN0XE9yZGVyc0xpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-8xjiy8foqo
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Components/SchedulesList/SchedulesList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTY2hlZHVsZXNMaXN0XFNjaGVkdWxlc0xpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-1uwpb9auya
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Components/ToursList/ToursList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUb3Vyc0xpc3RcVG91cnNMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-qwn9rblpu7
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-r0yqwuvdyg
+
+[C:/Users/leral/source/repos/WebApplication1/Blazor/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-6hj6azdo60
