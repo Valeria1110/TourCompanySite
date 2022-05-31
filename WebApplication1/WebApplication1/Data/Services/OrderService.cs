@@ -24,7 +24,6 @@ public class OrderService
             FName = order.FName,
             LName = order.LName,
             MName = order.MName,
-            Age= order.Age,
             Phone = order.Phone,
             Email = order.Email,
             Image = order.Image,
@@ -48,7 +47,6 @@ public class OrderService
             FName = order.FName,
             LName= order.LName,
             MName= order.MName,
-            Age= order.Age,
             Phone= order.Phone,
             Email= order.Email,
             Image= order.Image,
@@ -68,7 +66,6 @@ public class OrderService
             FName= order.FName,
             LName=order.LName,
             MName=order.MName,
-            Age=order.Age,
             Phone= order.Phone,
             Email = order.Email,
             Image=order.Image,
@@ -90,7 +87,6 @@ public class OrderService
         uporder.FName = updatedOrder.FName;
         uporder.LName = updatedOrder.LName;
         uporder.MName = updatedOrder.MName;
-        uporder.Age= updatedOrder.Age;
         uporder.Phone = updatedOrder.Phone;
         uporder.Email = updatedOrder.Email;
         uporder.Image = updatedOrder.Image;
@@ -117,7 +113,7 @@ public class OrderService
     {
         var ords = await _context.Orders.ToListAsync();
         List<IncompleteOrder> result = new List<IncompleteOrder>();
-        ords.ForEach(o => result.Add(new IncompleteOrder { FName = o.FName, LName = o.LName, Age=o.Age}));
+        ords.ForEach(o => result.Add(new IncompleteOrder { FName = o.FName, LName = o.LName}));
         return await Task.FromResult(result);
     }
 }
